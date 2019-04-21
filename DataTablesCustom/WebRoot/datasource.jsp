@@ -106,7 +106,7 @@
         recordsTotalSql += " order by " + orderColumn + " " + orderDir;
         sql += " limit " + startIndex + ", " + pageSize;
 
-
+		 System.out.println("sql语句是："+sql);
         rs = stmt.executeQuery(sql);
         while (rs.next()) {
             users.add(new User(rs.getString("name"),
@@ -132,6 +132,9 @@
     info.put("total", total);
     info.put("draw", draw);
     String json = new Gson().toJson(info);
+    System.out.println(json);
+    
+    
     rs.close();
     stmt.close();
     conn.close();
